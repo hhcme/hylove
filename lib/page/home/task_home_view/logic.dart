@@ -5,8 +5,8 @@ import 'dart:math' as math;
 import 'state.dart';
 
 class TaskHomeLogic extends GetxController with GetSingleTickerProviderStateMixin {
-  TaskHomeLogic({required this.state});
-  final TaskHomeState state;
+  TaskHomeLogic();
+  final TaskHomeState state = TaskHomeState();
 
   late AnimationController animationController;
 

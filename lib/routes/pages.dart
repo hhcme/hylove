@@ -3,6 +3,7 @@ import 'package:hylove/page/home/app_home/app_home.dart';
 import 'package:hylove/page/home/login_home/login_home.dart';
 import 'package:hylove/page/home/login_home/register_user/register_user.dart';
 import 'package:hylove/page/home/photo_home/photo_home.dart';
+import 'package:hylove/page/home/task_home_view/task_home.dart';
 import 'package:hylove/page/test/test.dart';
 
 part 'routes.dart';
@@ -39,6 +40,14 @@ class AppPages {
         name: _Paths.photoHome,
         page: () => const PhotoHomeView(),
         binding: PhotoHomeBinding(),
+        transition: Transition.circularReveal,
+        transitionDuration: const Duration(milliseconds: 500)),
+
+    /// 任务首页
+    GetPage(
+        name: _Paths.taskHome,
+        page: () => const TaskHomeView(),
+        binding: TaskHomeBinding(),
         transition: Transition.circularReveal,
         transitionDuration: const Duration(milliseconds: 500)),
 

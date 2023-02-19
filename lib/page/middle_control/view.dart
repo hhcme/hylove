@@ -1,5 +1,3 @@
-import 'dart:math';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:base_widget/base_widget.dart';
@@ -106,15 +104,17 @@ class MiddleControlView extends GetView<MiddleControlLogic> {
 
                           /// 右边的设置按钮
                           if (controller.state.isShowStatus)
-                            SizedBox(
-                              width: screenUtil.adaptive(150),
-                              height: screenUtil.adaptive(150),
-                              child: Icon(
-                                Icons.settings,
-                                size: screenUtil.adaptive(100),
-                                color: Colors.white,
-                              ),
-                            )
+                            GestureDetector(
+                                onTap: () {},
+                                child: SizedBox(
+                                  width: screenUtil.adaptive(150),
+                                  height: screenUtil.adaptive(150),
+                                  child: Icon(
+                                    Icons.settings,
+                                    size: screenUtil.adaptive(100),
+                                    color: Colors.white,
+                                  ),
+                                ))
                         ],
                       ),
 

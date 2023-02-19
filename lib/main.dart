@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hylove/data/data.dart';
 import 'package:hylove/page/home/app_home/app_home.dart';
 import 'package:get/get.dart';
 import 'package:base_widget/base_widget.dart';
 import 'package:hylove/routes/pages.dart';
 
 void main() {
+  AllData.init();
   runApp(const MyApp());
 }
 

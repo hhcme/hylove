@@ -33,7 +33,7 @@ class AppHomeView extends GetView<AppHomeLogic> {
             child: Center(
               child: TextButton(
                   onPressed: () {
-                    Get.toNamed(Routes.PHOTO_HOME);
+                    Get.toNamed(Routes.TASK_HOME);
                   },
                   child: const Text('go')),
             ),

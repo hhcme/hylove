@@ -12,6 +12,9 @@ abstract class Routes {
   // 相册首页
   static const PHOTO_HOME = _Paths.photoHome;
 
+  // 任务首页
+  static const TASK_HOME = _Paths.taskHome;
+
   // 注册账号
   static const REGISTER_USER = _Paths.loginHome + _Paths.registerUser;
 
@@ -29,6 +32,9 @@ abstract class _Paths {
 
   // 相册首页
   static const photoHome = '/photo_home';
+
+  // 任务首页
+  static const taskHome = '/task_home';
 
   // 注册账号
   static const registerUser = '/register_user';
