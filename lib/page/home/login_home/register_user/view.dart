@@ -29,38 +29,6 @@ class RegisterView extends GetView<RegisterLogic> {
       ),
       body: Column(
         children: [
-          // Container(
-          //   margin: EdgeInsets.only(
-          //     top: screenUtil.adaptive(100),
-          //     bottom: screenUtil.adaptive(100),
-          //   ),
-          //   child: Column(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     children: [
-          //       Container(
-          //         width: screenUtil.adaptive(1000),
-          //         alignment: Alignment.center,
-          //         child: Text('欢迎注册',
-          //             style: TextStyle(
-          //                 fontSize: screenUtil.adaptive(80),
-          //                 fontWeight: FontWeight.w600,
-          //                 letterSpacing: screenUtil.adaptive(10))),
-          //       ),
-          //       Container(
-          //         width: screenUtil.adaptive(1000),
-          //         alignment: Alignment.center,
-          //         margin: EdgeInsets.only(
-          //           top: screenUtil.adaptive(10),
-          //         ),
-          //         child: Text(
-          //           '从这里开始！',
-          //           style: TextStyle(color: Colors.grey, letterSpacing: screenUtil.adaptive(5)),
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
           Container(
             width: screenUtil.adaptive(800),
             height: screenUtil.adaptive(200),
