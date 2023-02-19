@@ -1,5 +1,6 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
+import 'package:hylove/routes/pages.dart';
 
 import 'state.dart';
 
@@ -19,11 +20,10 @@ class RegisterLogic extends GetxController {
       if (index == null) {
         return;
       }
-      if (index < 5) {
+      if (index < 4) {
         index += 1;
       } else {
-        /// 这里是测试用的
-        index = 0;
+        Get.until((route) => route.settings.name == Routes.APP_HOME || route.settings.name == '/');
       }
     }
 
