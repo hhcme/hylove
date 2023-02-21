@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:base_widget/base_widget.dart';
 import 'package:grouped_list/grouped_list.dart';
-import 'package:hylove/page/home/task_home_view/task_list/task_list.dart';
+import 'package:hylove/page/home/task_home_view/task_card/task_card.dart';
 
 import 'logic.dart';
 
@@ -149,16 +149,16 @@ class TaskHomeView extends GetView<TaskHomeLogic> {
                 GroupedListView<dynamic, String>(
                   shrinkWrap: true,
                   elements: controller.state.elements,
-                  groupBy: (element) => element['group'], // 可以对列表里的数据进行一点归类
-                  groupComparator: (value1, value2) => value2.compareTo(value1),
-                  itemComparator: (item1, item2) => item1['name'].compareTo(item2['name']),
+                  groupBy: (element) => element.group, // 可以对列表里的数据进行一点归类
+                  // groupComparator: (value1, value2) => value2.compareTo(value1),
+                  // itemComparator: (item1, item2) => item1['name'].compareTo(item2['name']),
                   // order: GroupedListOrder.DESC,
                   // useStickyGroupSeparators: true,
                   groupSeparatorBuilder: (String value) => Container(),
                   itemBuilder: (c, element) {
                     return LogicWrap(
-                        getInstance: () => TaskListLogic(TaskListState(element)),
-                        child: const TaskListView());
+                        getInstance: () => TaskCardLogic(TaskCardState()),
+                        child: const TaskCardView());
                   },
                 ),
 

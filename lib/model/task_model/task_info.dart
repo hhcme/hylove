@@ -3,35 +3,35 @@ import 'dart:ui';
 /// 任务信息
 class TaskInfo {
   /// 任务id
-  late final int id;
+  final int id = 0;
 
   /// 任务分组
-  late final String group;
+  final String group = 'one';
 
   /// 标题
-  late final String title;
+  final String title = '每天都要喝水';
 
   /// 任务描述
-  late final String description;
+  final String description = '喝水有奖励，不喝水要扣分';
 
   /// 创建者
-  late final int creator;
+  final int creator = 0;
 
   /// 完成者
-  late final int completer;
+  final int completer = 1;
 
   /// 创建日期
-  late final int createTime;
+  final int createTime = 0;
 
   /// 完成日期
-  late final int completeTime;
+  final int completeTime = 0;
 
   /// 完成周期
-  late final int cycle;
+  final int cycle = 0;
 
   /// 完成次数
-  late final int frequency;
+  final int frequency = 0;
 
   /// 图片
-  late final List<Image> photos;
+  final List<Image> photos = [];
 }
