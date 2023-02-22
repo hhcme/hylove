@@ -15,6 +15,9 @@ abstract class Routes {
   // 任务首页
   static const TASK_HOME = _Paths.taskHome;
 
+  // 设置首页
+  static const SET_HOME = _Paths.setHome;
+
   // 注册账号
   static const REGISTER_USER = _Paths.loginHome + _Paths.registerUser;
 
@@ -35,6 +38,9 @@ abstract class _Paths {
 
   // 任务首页
   static const taskHome = '/task_home';
+
+  // 设置首页
+  static const setHome = '/set_home';
 
   // 注册账号
   static const registerUser = '/register_user';

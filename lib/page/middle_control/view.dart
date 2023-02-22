@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:base_widget/base_widget.dart';
+import 'package:hylove/routes/pages.dart';
 
 import 'logic.dart';
 
@@ -105,7 +106,9 @@ class MiddleControlView extends GetView<MiddleControlLogic> {
                           /// 右边的设置按钮
                           if (controller.state.isShowStatus)
                             GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Get.toNamed(Routes.SET_HOME);
+                                },
                                 child: SizedBox(
                                   width: screenUtil.adaptive(150),
                                   height: screenUtil.adaptive(150),

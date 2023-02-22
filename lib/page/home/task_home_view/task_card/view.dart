@@ -15,26 +15,63 @@ class TaskCardView extends GetView<TaskCardLogic> {
       surfaceTintColor: Colors.white,
       child: SizedBox(
           child: Container(
-        height: screenUtil.adaptive(250),
-        padding: EdgeInsets.all(
-          screenUtil.adaptive(30),
+        padding: EdgeInsets.only(
+          top: screenUtil.adaptive(30),
+          bottom: screenUtil.adaptive(30),
+          left: screenUtil.adaptive(50),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: [Text('任务1')],
-                )
-              ],
-            ),
-            Column(
-              children: [
+                  children: [
+                    Text(
+                      controller.state.taskInfo.title,
+                      textAlign: TextAlign.start,
+                      style: TextStyle(fontSize: screenUtil.adaptive(45)),
+                    )
+                  ],
+                ),
                 Row(
-                  children: [Text('miaoshu')],
-                )
+                  children: [
+                    SizedBox(
+                      width: screenUtil.adaptive(620),
+                      child: Text(
+                        controller.state.taskInfo.description,
+                        style: TextStyle(fontSize: screenUtil.adaptive(35)),
+                      ),
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      '加分: ${controller.state.taskInfo.addPoints}',
+                      style: TextStyle(fontSize: screenUtil.adaptive(35)),
+                    )
+                  ],
+                ),
               ],
             ),
+            TextButton(
+              onPressed: () {},
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))),
+                overlayColor: MaterialStateProperty.all(const Color(0x00FFFFFF)),
+              ),
+              child: SizedBox(
+                  width: screenUtil.adaptive(100),
+                  height: screenUtil.adaptive(100),
+                  child: Icon(
+                    Icons.check_circle,
+                    size: screenUtil.adaptive(100),
+                    color: const Color(0xFFF5B0FF),
+                  )),
+            )
           ],
         ),
       )),

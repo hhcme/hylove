@@ -15,8 +15,8 @@ class TaskHomeLogic extends GetxController with GetSingleTickerProviderStateMixi
   void makeAnimation() {
     /// 高度动画
     state.height = Tween<double>(
-      begin: screenUtil.adaptive(380),
-      end: screenUtil.adaptive(600),
+      begin: screenUtil.adaptive(390),
+      end: screenUtil.adaptive(650),
     ).animate(
       CurvedAnimation(
         parent: animationController,
@@ -27,6 +27,7 @@ class TaskHomeLogic extends GetxController with GetSingleTickerProviderStateMixi
         ),
       ),
     );
+
     /// 三角形旋转动画
     state.transform = Tween<double>(
       begin: 0,

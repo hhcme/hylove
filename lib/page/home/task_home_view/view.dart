@@ -49,16 +49,30 @@ class TaskHomeView extends GetView<TaskHomeLogic> {
                           child: Column(
                             // mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
-                                height: screenUtil.adaptive(70),
-                                margin: EdgeInsets.only(
-                                  top: screenUtil.adaptive(20),
-                                  bottom: screenUtil.adaptive(20),
-                                ),
-                                child: const Text(
-                                  '任务',
-                                  style: TextStyle(fontSize: 24),
-                                ),
+                              Stack(
+                                children: [
+                                  Container(
+                                    child: IconButton(
+                                      onPressed: () {
+                                        Get.back();
+                                      },
+                                      icon: Icon(Icons.keyboard_backspace_rounded),
+                                    ),
+                                  ),
+                                  Center(
+                                    child: Container(
+                                      height: screenUtil.adaptive(70),
+                                      margin: EdgeInsets.only(
+                                        top: screenUtil.adaptive(20),
+                                        bottom: screenUtil.adaptive(20),
+                                      ),
+                                      child: const Text(
+                                        '任务',
+                                        style: TextStyle(fontSize: 24),
+                                      ),
+                                    ),
+                                  )
+                                ],
                               ),
                               Container(
                                 height: screenUtil.adaptive(2),
@@ -146,6 +160,7 @@ class TaskHomeView extends GetView<TaskHomeLogic> {
                   ],
                 ),
 
+                /// 选项卡
                 GroupedListView<dynamic, String>(
                   shrinkWrap: true,
                   elements: controller.state.elements,
@@ -157,19 +172,9 @@ class TaskHomeView extends GetView<TaskHomeLogic> {
                   groupSeparatorBuilder: (String value) => Container(),
                   itemBuilder: (c, element) {
                     return LogicWrap(
-                        getInstance: () => TaskCardLogic(TaskCardState()),
-                        child: const TaskCardView());
+                        getInstance: () => TaskCardLogic(TaskCardState(element)), child: const TaskCardView());
                   },
                 ),
-
-                /// 选项卡
-                Container(
-                  color: Colors.red,
-                  width: screenUtil.adaptive(80),
-                  height: screenUtil.adaptive(1500),
-                )
-
-                /// 选项页
               ],
             ),
           ),

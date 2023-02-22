@@ -32,6 +32,9 @@ class TaskInfo {
   /// 完成次数
   final int frequency = 0;
 
+  /// 完成加分
+  final int addPoints = 1;
+
   /// 图片
   final List<Image> photos = [];
 }

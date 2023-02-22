@@ -12,6 +12,16 @@ class TaskHomeState {
 
   List<TaskInfo> elements = [
     TaskInfo(),
-    TaskInfo()
+    TaskInfo(),
+    TaskInfo(),
+    TaskInfo(),
+    TaskInfo(),
+    TaskInfo(),
+    TaskInfo(),
+    TaskInfo(),
+    TaskInfo(),
+    TaskInfo(),
+    TaskInfo(),
+    TaskInfo(),
   ];
 }
