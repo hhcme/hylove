@@ -47,61 +47,66 @@ class MiddleControlView extends GetView<MiddleControlLogic> {
                     children: [
                       /// 个人的信息面板
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          /// 头像
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(screenUtil.adaptive(100)),
-                            child: Image.asset(
-                              "asset/login/touxiang.JPG",
-                              width: screenUtil.adaptive(200),
-                              height: screenUtil.adaptive(200),
-                            ),
-                          ),
-
-                          /// 中间的昵称和个性签名
-                          if (controller.state.isShowStatus)
-                            GestureDetector(
-                              onTap: () => controller.goLogin(),
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                  top: screenUtil.adaptive(20),
-                                ),
-                                width: screenUtil.adaptive(450),
-                                height: screenUtil.adaptive(180),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      height: screenUtil.adaptive(90),
-                                      margin: EdgeInsets.only(
-                                          left: screenUtil.adaptive(40), right: screenUtil.adaptive(40)),
-                                      child: Text(
-                                        '我就是我',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: screenUtil.adaptive(55),
-                                            decoration: TextDecoration.none),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: screenUtil.adaptive(70),
-                                      margin: EdgeInsets.only(
-                                          left: screenUtil.adaptive(40),
-                                          right: screenUtil.adaptive(40),
-                                          top: screenUtil.adaptive(10)),
-                                      child: Text(
-                                        '这是一个个性签名',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: screenUtil.adaptive(30),
-                                            decoration: TextDecoration.none),
-                                      ),
-                                    ),
-                                  ],
+                          Row(
+                            children: [
+                              /// 头像
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(screenUtil.adaptive(100)),
+                                child: Image.asset(
+                                  "asset/login/touxiang.JPG",
+                                  width: screenUtil.adaptive(200),
+                                  height: screenUtil.adaptive(200),
                                 ),
                               ),
-                            ),
+
+                              /// 中间的昵称和个性签名
+                              if (controller.state.isShowStatus)
+                                GestureDetector(
+                                  onTap: () => controller.goLogin(),
+                                  child: Container(
+                                    margin: EdgeInsets.only(
+                                      top: screenUtil.adaptive(20),
+                                    ),
+                                    width: screenUtil.adaptive(450),
+                                    height: screenUtil.adaptive(180),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          height: screenUtil.adaptive(90),
+                                          margin: EdgeInsets.only(
+                                              left: screenUtil.adaptive(40), right: screenUtil.adaptive(40)),
+                                          child: Text(
+                                            '我就是我',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: screenUtil.adaptive(55),
+                                                decoration: TextDecoration.none),
+                                          ),
+                                        ),
+                                        Container(
+                                          height: screenUtil.adaptive(70),
+                                          margin: EdgeInsets.only(
+                                              left: screenUtil.adaptive(40),
+                                              right: screenUtil.adaptive(40),
+                                              top: screenUtil.adaptive(10)),
+                                          child: Text(
+                                            '这是一个个性签名',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: screenUtil.adaptive(30),
+                                                decoration: TextDecoration.none),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                            ],
+                          ),
 
                           /// 右边的设置按钮
                           if (controller.state.isShowStatus)
@@ -137,80 +142,89 @@ class MiddleControlView extends GetView<MiddleControlLogic> {
 
                       /// 中控按钮
                       if (controller.state.isShowStatus)
-                        Row(
-                          children: [
-                            Container(
-                              width: screenUtil.adaptive(160),
-                              height: screenUtil.adaptive(80),
-                              margin: EdgeInsets.only(
-                                bottom: screenUtil.adaptive(10),
+                        Container(
+                          padding: EdgeInsets.only(left: screenUtil.adaptive(30), right: screenUtil.adaptive(30)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SizedBox(
+                                width: screenUtil.adaptive(130),
+                                height: screenUtil.adaptive(130),
+                                child: TextButton(
+                                  onPressed: () {},
+                                  style: ButtonStyle(
+                                    shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(borderRadius: BorderRadius.circular(65))),
+                                  ),
+                                  child: Icon(
+                                    Icons.home,
+                                    size: screenUtil.adaptive(80),
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
-                              child: TextButton(
-                                onPressed: () {},
-                                child: Icon(
-                                  Icons.home,
-                                  size: screenUtil.adaptive(80),
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            Container(
-                                width: screenUtil.adaptive(160),
-                                height: screenUtil.adaptive(80),
-                                margin: EdgeInsets.only(
-                                  bottom: screenUtil.adaptive(10),
-                                ),
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Icon(
-                                    Icons.chat,
-                                    size: screenUtil.adaptive(80),
-                                    color: Colors.white,
-                                  ),
-                                )),
-                            Container(
-                                width: screenUtil.adaptive(160),
-                                height: screenUtil.adaptive(80),
-                                margin: EdgeInsets.only(
-                                  bottom: screenUtil.adaptive(10),
-                                ),
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Icon(
-                                    Icons.book,
-                                    size: screenUtil.adaptive(80),
-                                    color: Colors.white,
-                                  ),
-                                )),
-                            Container(
-                                width: screenUtil.adaptive(160),
-                                height: screenUtil.adaptive(80),
-                                margin: EdgeInsets.only(
-                                  bottom: screenUtil.adaptive(10),
-                                ),
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Icon(
-                                    Icons.person,
-                                    size: screenUtil.adaptive(80),
-                                    color: Colors.white,
-                                  ),
-                                )),
-                            Container(
-                                width: screenUtil.adaptive(160),
-                                height: screenUtil.adaptive(80),
-                                margin: EdgeInsets.only(
-                                  bottom: screenUtil.adaptive(10),
-                                ),
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Icon(
-                                    Icons.info,
-                                    size: screenUtil.adaptive(80),
-                                    color: Colors.white,
-                                  ),
-                                )),
-                          ],
+                              SizedBox(
+                                  width: screenUtil.adaptive(130),
+                                  height: screenUtil.adaptive(130),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    style: ButtonStyle(
+                                      shape: MaterialStateProperty.all(
+                                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(65))),
+                                    ),
+                                    child: Icon(
+                                      Icons.chat,
+                                      size: screenUtil.adaptive(80),
+                                      color: Colors.white,
+                                    ),
+                                  )),
+                              SizedBox(
+                                  width: screenUtil.adaptive(130),
+                                  height: screenUtil.adaptive(130),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    style: ButtonStyle(
+                                      shape: MaterialStateProperty.all(
+                                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(65))),
+                                    ),
+                                    child: Icon(
+                                      Icons.book,
+                                      size: screenUtil.adaptive(80),
+                                      color: Colors.white,
+                                    ),
+                                  )),
+                              SizedBox(
+                                  width: screenUtil.adaptive(130),
+                                  height: screenUtil.adaptive(130),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    style: ButtonStyle(
+                                      shape: MaterialStateProperty.all(
+                                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(65))),
+                                    ),
+                                    child: Icon(
+                                      Icons.person,
+                                      size: screenUtil.adaptive(80),
+                                      color: Colors.white,
+                                    ),
+                                  )),
+                              SizedBox(
+                                  width: screenUtil.adaptive(130),
+                                  height: screenUtil.adaptive(130),
+                                  child: TextButton(
+                                    onPressed: () {},
+                                    style: ButtonStyle(
+                                      shape: MaterialStateProperty.all(
+                                          RoundedRectangleBorder(borderRadius: BorderRadius.circular(65))),
+                                    ),
+                                    child: Icon(
+                                      Icons.info,
+                                      size: screenUtil.adaptive(80),
+                                      color: Colors.white,
+                                    ),
+                                  )),
+                            ],
+                          ),
                         )
                     ],
                   ),

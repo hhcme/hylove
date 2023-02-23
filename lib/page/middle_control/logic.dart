@@ -25,7 +25,7 @@ class MiddleControlLogic extends GetxController with GetSingleTickerProviderStat
     /// 高度动画
     state.height = Tween<double>(
       begin: screenUtil.adaptive(200),
-      end: screenUtil.adaptive(400),
+      end: screenUtil.adaptive(420),
     ).animate(
       CurvedAnimation(
         parent: animationController,

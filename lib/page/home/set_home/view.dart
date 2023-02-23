@@ -12,18 +12,20 @@ class SetHomeView extends GetView<SetHomeLogic> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('设置'),
+        backgroundColor: const Color(0xFFF0EFF5),
       ),
-      // backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(screenUtil.adaptive(40)),
-          child: Container(
+      backgroundColor: const Color(0xFFF0EFF5),
+      body: ListView(
+        children: [
+          Container(
             margin: EdgeInsets.only(
               top: screenUtil.adaptive(30),
               bottom: screenUtil.adaptive(30),
               left: screenUtil.adaptive(50),
               right: screenUtil.adaptive(50),
             ),
+            decoration:
+                BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(screenUtil.adaptive(40))),
             child: Column(
               children: [
                 SetItemView(onTap: () {}, name: '账号资料'),
@@ -36,32 +38,34 @@ class SetHomeView extends GetView<SetHomeLogic> {
                   name: '关于我们',
                   hasDownLine: false,
                 ),
-                Container(
-                    height: screenUtil.adaptive(150),
-                    margin: EdgeInsets.only(
-                      top: screenUtil.adaptive(40),
-                    ),
-                    child: TextButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.white),
-                        overlayColor: MaterialStateProperty.all(const Color(0x55F5B0FF)),
-                      ),
-                      child: Container(
-                        width: screenUtil.adaptive(900),
-                        height: screenUtil.adaptive(150),
-                        child: Center(
-                          child: Text(
-                            '退出登录',
-                            style: TextStyle(color: Colors.red, fontSize: screenUtil.adaptive(45)),
-                          ),
-                        ),
-                      ),
-                    ))
               ],
             ),
           ),
-        ),
+          Container(
+              height: screenUtil.adaptive(150),
+              margin: EdgeInsets.only(
+                top: screenUtil.adaptive(40),
+                left: screenUtil.adaptive(50),
+                right: screenUtil.adaptive(50),
+              ),
+              child: TextButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                  overlayColor: MaterialStateProperty.all(const Color(0x55F5B0FF)),
+                ),
+                child: SizedBox(
+                  width: screenUtil.adaptive(900),
+                  height: screenUtil.adaptive(150),
+                  child: Center(
+                    child: Text(
+                      '退出登录',
+                      style: TextStyle(color: Colors.red, fontSize: screenUtil.adaptive(45)),
+                    ),
+                  ),
+                ),
+              ))
+        ],
       ),
 
       /*
