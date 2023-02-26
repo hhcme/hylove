@@ -9,7 +9,7 @@ class MiddleControlState {
   bool isShowStatus = false;
 
   /// 当前的展开状态
-  bool isOpacity = true;
+  RxBool isOpacity = true.obs;
 
   final Rx<UserInfo?> userInfo = Rx(null);
 

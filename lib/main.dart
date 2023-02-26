@@ -3,6 +3,7 @@ import 'package:hylove/data/data.dart';
 import 'package:hylove/page/home/app_home/app_home.dart';
 import 'package:get/get.dart';
 import 'package:base_widget/base_widget.dart';
+import 'package:hylove/page/middle_control/middle_control.dart';
 import 'package:hylove/routes/pages.dart';
 
 void main() {
@@ -17,6 +18,12 @@ class MyApp extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         FocusScope.of(context).requestFocus(FocusNode());
+        try{
+          final MiddleControlLogic middle = Get.find<MiddleControlLogic>();
+          middle.listenFocusNode();
+        }catch(e,stack){
+          print(e);
+        }
         print('全局失去焦点');
       },
       child: GetMaterialApp(

@@ -87,7 +87,7 @@ class MiddleControlLogic extends GetxController with GetTickerProviderStateMixin
     /// 透明度动画
     state.opacity = Tween<double>(
       begin: 1.0,
-      end: 0.5,
+      end: 0.0,
     ).animate(
       CurvedAnimation(
         parent: boxTransparentAnimationController,
@@ -114,34 +114,42 @@ class MiddleControlLogic extends GetxController with GetTickerProviderStateMixin
     } on TickerCanceled {}
   }
 
-  void xxx() async {
+  Future<void> showMiddle() async {
     try {
-      if (state.isOpacity) {
-        await boxTransparentAnimationController.forward().orCancel;
-        state.isOpacity = false;
-      } else {
-        state.isOpacity = true;
-        await boxTransparentAnimationController.reverse().orCancel;
-      }
+      _listenFocusNode();
+      state.isOpacity.value = true;
+      await boxTransparentAnimationController.reverse().orCancel;
     } on TickerCanceled {}
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-    state.focusNode.addListener(() async {
-      if (state.focusNode.hasFocus) {
-        if (state.isShowStatus == false) {
-          print('监听得到焦点');
-          await show();
-          return;
-        }
-        print('已经展开无操作');
-      } else {
-        print('监听失去焦点');
-        await hide();
+  Future<void> hideMiddle() async {
+    try {
+      await boxTransparentAnimationController.forward().orCancel;
+      state.isOpacity.value = false;
+      _removeListenFocusNode();
+    } on TickerCanceled {}
+  }
+
+  void _listenFocusNode() async {
+    state.focusNode.addListener(listenFocusNode);
+  }
+
+  void _removeListenFocusNode() async {
+    state.focusNode.removeListener(listenFocusNode);
+  }
+
+  void listenFocusNode() async {
+    if (state.focusNode.hasFocus) {
+      if (state.isShowStatus == false) {
+        print('监听得到焦点');
+        await show();
+        return;
       }
-    });
+      print('已经展开无操作');
+    } else {
+      print('监听失去焦点');
+      await hide();
+    }
   }
 
   @override
@@ -150,5 +158,12 @@ class MiddleControlLogic extends GetxController with GetTickerProviderStateMixin
     boxShapeAnimationController = AnimationController(vsync: this, duration: boxShapeDuration);
     boxTransparentAnimationController = AnimationController(vsync: this, duration: boxShapeDuration);
     makeAnimation();
+    _listenFocusNode();
+  }
+
+  @override
+  void dispose() {
+    _removeListenFocusNode();
+    super.dispose();
   }
 }

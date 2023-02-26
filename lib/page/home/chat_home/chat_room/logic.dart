@@ -2,6 +2,7 @@ import 'package:flutter/animation.dart';
 import 'package:get/get.dart';
 import 'package:hylove/model/model.dart';
 import 'package:base_widget/base_widget.dart';
+import 'package:hylove/page/middle_control/middle_control.dart';
 import 'state.dart';
 
 class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixin {
@@ -11,10 +12,18 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
 
   final Duration duration = const Duration(milliseconds: 500);
 
+  final MiddleControlLogic middle = Get.find<MiddleControlLogic>();
+
   void xxx() async {
+    if (animationController.isAnimating) {
+      return;
+    }
+
     if (state.isShowStatus == false) {
+      middle.hideMiddle();
       await show();
     } else {
+      middle.showMiddle();
       await hide();
     }
   }
@@ -59,5 +68,11 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
     state.userInfo.value = Get.arguments;
     animationController = AnimationController(vsync: this, duration: duration);
     makeAnimation();
+  }
+
+  @override
+  void onClose() {
+    middle.showMiddle();
+    super.dispose();
   }
 }
