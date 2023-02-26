@@ -25,9 +25,9 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         getPages: AppPages.routes,
-        theme : ThemeData (
-          useMaterial3 : true,
-          colorSchemeSeed : const Color(0xFFF5B0FF),
+        theme: ThemeData(
+          useMaterial3: true,
+          // colorSchemeSeed: const Color(0xFFF5B0FF),
         ),
       ),
     );

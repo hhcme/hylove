@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 import 'package:hylove/page/home/app_home/app_home.dart';
+import 'package:hylove/page/home/chat_home/chat_home.dart';
+import 'package:hylove/page/home/chat_home/chat_room/chat_room.dart';
 import 'package:hylove/page/home/login_home/login_home.dart';
 import 'package:hylove/page/home/login_home/register_user/register_user.dart';
 import 'package:hylove/page/home/photo_home/photo_home.dart';
@@ -59,6 +61,23 @@ class AppPages {
         binding: SetHomeBinding(),
         transition: Transition.circularReveal,
         transitionDuration: const Duration(milliseconds: 500)),
+
+    /// 聊天首页
+    GetPage(
+        name: _Paths.chatHome,
+        page: () => const ChatHomeView(),
+        binding: ChatHomeBinding(),
+        transition: Transition.circularReveal,
+        transitionDuration: const Duration(milliseconds: 500),
+        children: [
+          /// 聊天房间
+          GetPage(
+              name: _Paths.chatRoom,
+              page: () => const ChatRoomView(),
+              binding: ChatRoomBinding(),
+              transition: Transition.rightToLeftWithFade,
+              transitionDuration: const Duration(milliseconds: 200)),
+        ]),
 
     /// test
     GetPage(

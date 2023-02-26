@@ -1,5 +1,6 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:hylove/model/model.dart';
 
 class MiddleControlState {
   MiddleControlState();
@@ -7,9 +8,15 @@ class MiddleControlState {
   /// 当前的展开状态
   bool isShowStatus = false;
 
-  final FocusNode focusNode=FocusNode();
+  /// 当前的展开状态
+  bool isOpacity = true;
+
+  final Rx<UserInfo?> userInfo = Rx(null);
+
+  final FocusNode focusNode = FocusNode();
   late final Animation<double> height;
   late final Animation<double> width;
   late final Animation<double> borderRadius;
   late final Animation<double> middlePadding;
+  late final Animation<double> opacity;
 }

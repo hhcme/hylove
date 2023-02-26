@@ -25,6 +25,10 @@ flutter:
   assets:
     - asset/login/touxiang.JPG
     - asset/login/bj.JPG
+  fonts:
+    - family: MyIcons
+      fonts:
+        - asset: asset/icons/iconfont.ttf
 dependency_overrides:
   base_widget:
     path: /Users/hahaha/Desktop/LoveNote/Front/layer_1/base_widget

@@ -18,6 +18,12 @@ abstract class Routes {
   // 设置首页
   static const SET_HOME = _Paths.setHome;
 
+  // 聊天首页
+  static const CHAT_HOME = _Paths.chatHome;
+
+  // 聊天界面
+  static const CHAT_ROOM = _Paths.chatHome + _Paths.chatRoom;
+
   // 注册账号
   static const REGISTER_USER = _Paths.loginHome + _Paths.registerUser;
 
@@ -41,6 +47,12 @@ abstract class _Paths {
 
   // 设置首页
   static const setHome = '/set_home';
+
+  // 聊天首页
+  static const chatHome = '/chat_home';
+
+  // 聊天界面
+  static const chatRoom = '/chat_room';
 
   // 注册账号
   static const registerUser = '/register_user';

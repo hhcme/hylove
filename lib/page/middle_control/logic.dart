@@ -6,16 +6,18 @@ import 'package:hylove/routes/pages.dart';
 
 import 'state.dart';
 
-class MiddleControlLogic extends GetxController with GetSingleTickerProviderStateMixin {
+class MiddleControlLogic extends GetxController with GetTickerProviderStateMixin {
   MiddleControlLogic({required this.state});
   final MiddleControlState state;
 
-  late AnimationController animationController;
+  late AnimationController boxShapeAnimationController;
+  late AnimationController boxTransparentAnimationController;
 
-  final Duration duration = const Duration(milliseconds: 500);
+  final Duration boxShapeDuration = const Duration(milliseconds: 500);
+  // final Duration boxTransparentDuration = const Duration(milliseconds: 500);
 
   Future<void> goLogin() async {
-    if(!state.isShowStatus){
+    if (!state.isShowStatus) {
       return;
     }
     Get.toNamed(Routes.LOGIN_HOME);
@@ -28,7 +30,7 @@ class MiddleControlLogic extends GetxController with GetSingleTickerProviderStat
       end: screenUtil.adaptive(420),
     ).animate(
       CurvedAnimation(
-        parent: animationController,
+        parent: boxShapeAnimationController,
         curve: const Interval(
           0.1,
           0.9,
@@ -43,7 +45,7 @@ class MiddleControlLogic extends GetxController with GetSingleTickerProviderStat
       end: screenUtil.adaptive(880),
     ).animate(
       CurvedAnimation(
-        parent: animationController,
+        parent: boxShapeAnimationController,
         curve: const Interval(
           0.1,
           0.9,
@@ -58,7 +60,7 @@ class MiddleControlLogic extends GetxController with GetSingleTickerProviderStat
       end: screenUtil.adaptive(50),
     ).animate(
       CurvedAnimation(
-        parent: animationController,
+        parent: boxShapeAnimationController,
         curve: const Interval(
           0.1,
           0.9,
@@ -73,7 +75,22 @@ class MiddleControlLogic extends GetxController with GetSingleTickerProviderStat
       end: screenUtil.adaptive(50),
     ).animate(
       CurvedAnimation(
-        parent: animationController,
+        parent: boxShapeAnimationController,
+        curve: const Interval(
+          0.1,
+          0.9,
+          curve: Curves.ease,
+        ),
+      ),
+    );
+
+    /// 透明度动画
+    state.opacity = Tween<double>(
+      begin: 1.0,
+      end: 0.5,
+    ).animate(
+      CurvedAnimation(
+        parent: boxTransparentAnimationController,
         curve: const Interval(
           0.1,
           0.9,
@@ -85,7 +102,7 @@ class MiddleControlLogic extends GetxController with GetSingleTickerProviderStat
 
   Future<void> show() async {
     try {
-      await animationController.forward().orCancel;
+      await boxShapeAnimationController.forward().orCancel;
       state.isShowStatus = true;
     } on TickerCanceled {}
   }
@@ -93,7 +110,19 @@ class MiddleControlLogic extends GetxController with GetSingleTickerProviderStat
   Future<void> hide() async {
     try {
       state.isShowStatus = false;
-      await animationController.reverse().orCancel;
+      await boxShapeAnimationController.reverse().orCancel;
+    } on TickerCanceled {}
+  }
+
+  void xxx() async {
+    try {
+      if (state.isOpacity) {
+        await boxTransparentAnimationController.forward().orCancel;
+        state.isOpacity = false;
+      } else {
+        state.isOpacity = true;
+        await boxTransparentAnimationController.reverse().orCancel;
+      }
     } on TickerCanceled {}
   }
 
@@ -118,7 +147,8 @@ class MiddleControlLogic extends GetxController with GetSingleTickerProviderStat
   @override
   void onInit() {
     super.onInit();
-    animationController = AnimationController(vsync: this, duration: duration);
+    boxShapeAnimationController = AnimationController(vsync: this, duration: boxShapeDuration);
+    boxTransparentAnimationController = AnimationController(vsync: this, duration: boxShapeDuration);
     makeAnimation();
   }
 }

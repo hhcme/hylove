@@ -144,15 +144,14 @@ class LoginHomeView extends GetView<LoginHomeLogic> {
                       borderRadius: BorderRadius.circular((screenUtil.adaptive(80))),
                     ),
                     prefixIcon: Container(
-                      padding: EdgeInsets.only(
-                        left: screenUtil.adaptive(20),
-                      ),
-                      child: Icon(
-                        Icons.password,
-                        size: screenUtil.adaptive(60),
-                        color: const Color(0xFFF5B0FF),
-                      ),
-                    ),
+                        padding: EdgeInsets.only(
+                          left: screenUtil.adaptive(20),
+                        ),
+                        child: Icon(
+                          const IconData(0xe658, fontFamily: 'MyIcons'),
+                          size: screenUtil.adaptive(60),
+                          color: const Color(0xFFF5B0FF),
+                        )),
                   ),
                 ),
               )
@@ -207,7 +206,7 @@ class LoginHomeView extends GetView<LoginHomeLogic> {
               borderRadius: BorderRadius.circular((screenUtil.adaptive(60))),
             ),
             child: ElevatedButton(
-              onPressed: () async {},
+              onPressed: () => controller.toLogin(),
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFFF5B0FF),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular((screenUtil.adaptive(60)))),

@@ -75,9 +75,9 @@ class RegisterView extends GetView<RegisterLogic> {
                                 style: ButtonStyle(
                                   shape: MaterialStateProperty.all(
                                       RoundedRectangleBorder(borderRadius: BorderRadius.circular(150))),
-                                  side: MaterialStateProperty.all(
-                                      BorderSide(color: const Color(0xFFF5B0FF), width: screenUtil.adaptive(1))),
-                                  overlayColor: MaterialStateProperty.all(const Color(0x44F5B0FF)),
+                                  // side: MaterialStateProperty.all(
+                                  //     BorderSide(color: const Color(0xFFF5B0FF), width: screenUtil.adaptive(1))),
+                                  overlayColor: MaterialStateProperty.all(const Color(0x00F5B0FF)),
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular((screenUtil.adaptive(150))),
@@ -87,7 +87,7 @@ class RegisterView extends GetView<RegisterLogic> {
                                       child: Icon(
                                         Icons.phone_android,
                                         size: screenUtil.adaptive(180),
-                                        color: const Color(0xFFF5B0FF),
+                                        color: Colors.black87,
                                       )),
                                 ),
                               )),
@@ -111,17 +111,18 @@ class RegisterView extends GetView<RegisterLogic> {
                                     style: ButtonStyle(
                                       shape: MaterialStateProperty.all(
                                           RoundedRectangleBorder(borderRadius: BorderRadius.circular(150))),
-                                      side: MaterialStateProperty.all(
-                                          BorderSide(color: const Color(0xFFF5B0FF), width: screenUtil.adaptive(1))),
-                                      overlayColor: MaterialStateProperty.all(const Color(0x55F5B0FF)),
+                                      // side: MaterialStateProperty.all(
+                                      //     BorderSide(color: const Color(0xFFF5B0FF), width: screenUtil.adaptive(1))),
+                                      overlayColor: MaterialStateProperty.all(const Color(0x00F5B0FF)),
                                     ),
                                     child: SizedBox(
                                         width: screenUtil.adaptive(300),
                                         height: screenUtil.adaptive(300),
                                         child: Icon(
-                                          Icons.apple,
+                                          const IconData(0xe607, fontFamily: 'MyIcons'),
                                           size: screenUtil.adaptive(200),
-                                          color: const Color(0xFFF5B0FF),
+                                          // color: const Color(0xFFF5B0FF),
+                                          color: Colors.green,
                                         )),
                                   ),
                                 )),
@@ -478,7 +479,7 @@ class RegisterView extends GetView<RegisterLogic> {
                             child: Icon(
                               Icons.check_circle,
                               size: screenUtil.adaptive(300),
-                              color: const Color(0x77F5B0FF),
+                              color: const Color(0xFFF5B0FF),
                             ),
                           ),
                         )
@@ -496,7 +497,7 @@ class RegisterView extends GetView<RegisterLogic> {
                     side: MaterialStateProperty.all(
                         BorderSide(color: const Color(0xFFF5B0FF), width: screenUtil.adaptive(1))),
                     overlayColor: MaterialStateProperty.all(const Color(0x44F5B0FF)),
-                    backgroundColor: MaterialStateProperty.all(const Color(0x88F5B0FF)),
+                    backgroundColor: MaterialStateProperty.all(const Color(0xFFF5B0FF)),
                   ),
                   child: Container(
                     width: screenUtil.adaptive(800),
