@@ -4,6 +4,7 @@ import 'package:hylove/page/home/chat_home/chat_home.dart';
 import 'package:hylove/page/home/chat_home/chat_room/chat_room.dart';
 import 'package:hylove/page/home/login_home/login_home.dart';
 import 'package:hylove/page/home/login_home/register_user/register_user.dart';
+import 'package:hylove/page/home/note_home/note_home.dart';
 import 'package:hylove/page/home/photo_home/photo_home.dart';
 import 'package:hylove/page/home/set_home/set_home.dart';
 import 'package:hylove/page/home/task_home_view/task_home.dart';
@@ -78,6 +79,14 @@ class AppPages {
               transition: Transition.rightToLeftWithFade,
               transitionDuration: const Duration(milliseconds: 200)),
         ]),
+
+    /// 日记首页
+    GetPage(
+        name: _Paths.noteHome,
+        page: () => const NoteHomeView(),
+        binding: NoteHomeBinding(),
+        transition: Transition.circularReveal,
+        transitionDuration: const Duration(milliseconds: 500)),
 
     /// test
     GetPage(

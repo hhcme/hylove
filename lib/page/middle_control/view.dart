@@ -221,12 +221,14 @@ class MiddleControlView extends GetView<MiddleControlLogic> {
                                                       color: Colors.white,
                                                     ))),
 
-                                            /// 去任务
+                                            /// 去日记
                                             SizedBox(
                                                 width: screenUtil.adaptive(130),
                                                 height: screenUtil.adaptive(130),
                                                 child: TextButton(
-                                                  onPressed: () {},
+                                                  onPressed: () {
+                                                    Get.toNamed(Routes.NOTE_HOME);
+                                                  },
                                                   style: ButtonStyle(
                                                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
                                                         borderRadius: BorderRadius.circular(65))),
@@ -238,7 +240,7 @@ class MiddleControlView extends GetView<MiddleControlLogic> {
                                                   ),
                                                 )),
 
-                                            /// 去日记
+                                            /// 去任务
                                             SizedBox(
                                                 width: screenUtil.adaptive(130),
                                                 height: screenUtil.adaptive(130),

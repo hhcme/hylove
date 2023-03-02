@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:base_widget/base_widget.dart';
 import 'package:hylove/page/home/login_home/register_user/register_user.dart';
-import 'package:hylove/routes/pages.dart';
-import 'logic.dart';
 
 class RegisterView extends GetView<RegisterLogic> {
   const RegisterView({super.key});
@@ -75,8 +73,6 @@ class RegisterView extends GetView<RegisterLogic> {
                                 style: ButtonStyle(
                                   shape: MaterialStateProperty.all(
                                       RoundedRectangleBorder(borderRadius: BorderRadius.circular(150))),
-                                  // side: MaterialStateProperty.all(
-                                  //     BorderSide(color: const Color(0xFFF5B0FF), width: screenUtil.adaptive(1))),
                                   overlayColor: MaterialStateProperty.all(const Color(0x00F5B0FF)),
                                 ),
                                 child: ClipRRect(
