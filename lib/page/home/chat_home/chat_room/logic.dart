@@ -1,5 +1,8 @@
 import 'package:flutter/animation.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:hylove/model/model.dart';
 import 'package:base_widget/base_widget.dart';
 import 'package:hylove/page/middle_control/middle_control.dart';
@@ -14,23 +17,32 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
 
   final MiddleControlLogic middle = Get.find<MiddleControlLogic>();
 
-  void xxx() async {
+  /// 打开聊天工具
+  void openChatTool() async {
     if (animationController.isAnimating) {
       return;
     }
 
     if (state.isShowStatus == false) {
-      middle.hideMiddle();
-      await show();
+      await showChatTool();
     } else {
-      middle.showMiddle();
-      await hide();
+      await hideChatTool();
     }
   }
 
+  /// 切换 语音/文字 输入
+  void changeVoiceText() async {
+    if (state.isInput.value == false) {
+      state.isInput.value = true;
+    } else {
+      state.isInput.value = false;
+    }
+  }
+
+  /// 制作动画
   void makeAnimation() {
     /// 高度动画
-    state.height = Tween<double>(
+    state.boxHeight = Tween<double>(
       begin: screenUtil.adaptive(200),
       end: screenUtil.adaptive(800),
     ).animate(
@@ -45,18 +57,33 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
     );
   }
 
-  Future<void> show() async {
+  /// 展开聊天工具
+  Future<void> showChatTool() async {
     try {
+      await SystemChannels.textInput.invokeMethod('TextInput.hide');
+      middle.hideMiddle();
       await animationController.forward().orCancel;
       state.isShowStatus = true;
     } on TickerCanceled {}
   }
 
-  Future<void> hide() async {
+  /// 隐藏聊天工具
+  Future<void> hideChatTool() async {
     try {
+      middle.showMiddle();
       state.isShowStatus = false;
       await animationController.reverse().orCancel;
     } on TickerCanceled {}
+  }
+
+  /// 输入框的焦点
+  void _listenInputFocusNode() async {
+    if (state.inputFocusNode.hasFocus) {
+      print('inputFocusNode得到焦点');
+      hideChatTool();
+    } else {
+      print('inputFocusNode失去焦点');
+    }
   }
 
   @override
@@ -68,11 +95,13 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
     state.userInfo.value = Get.arguments;
     animationController = AnimationController(vsync: this, duration: duration);
     makeAnimation();
+    state.inputFocusNode.addListener(_listenInputFocusNode);
   }
 
   @override
   void onClose() {
     middle.showMiddle();
+    state.inputFocusNode.removeListener(_listenInputFocusNode);
     super.dispose();
   }
 }

@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:hylove/page/home/app_home/app_home.dart';
 import 'package:hylove/page/home/chat_home/chat_home.dart';
 import 'package:hylove/page/home/chat_home/chat_room/chat_room.dart';
+import 'package:hylove/page/home/chat_home/chat_room/chat_room_setting/chat_room_setting.dart';
 import 'package:hylove/page/home/login_home/login_home.dart';
 import 'package:hylove/page/home/login_home/register_user/register_user.dart';
 import 'package:hylove/page/home/note_home/note_home.dart';
@@ -77,7 +78,16 @@ class AppPages {
               page: () => const ChatRoomView(),
               binding: ChatRoomBinding(),
               transition: Transition.rightToLeftWithFade,
-              transitionDuration: const Duration(milliseconds: 200)),
+              transitionDuration: const Duration(milliseconds: 200),
+              children: [
+                /// 聊天 - 设置
+                GetPage(
+                    name: _Paths.chatRoomSetting,
+                    page: () => const ChatRoomSettingView(),
+                    binding: ChatRoomSettingBinding(),
+                    transition: Transition.rightToLeftWithFade,
+                    transitionDuration: const Duration(milliseconds: 200)),
+              ]),
         ]),
 
     /// 日记首页

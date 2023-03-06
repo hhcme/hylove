@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hylove/data/data.dart';
 import 'package:hylove/page/home/app_home/app_home.dart';
 import 'package:get/get.dart';
 import 'package:base_widget/base_widget.dart';
+import 'package:hylove/page/home/chat_home/chat_room/chat_room.dart';
 import 'package:hylove/page/middle_control/middle_control.dart';
 import 'package:hylove/routes/pages.dart';
 
@@ -18,10 +20,13 @@ class MyApp extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         FocusScope.of(context).requestFocus(FocusNode());
-        try{
-          final MiddleControlLogic middle = Get.find<MiddleControlLogic>();
+        SystemChannels.textInput.invokeMethod('TextInput.hide');
+        final MiddleControlLogic middle = Get.find<MiddleControlLogic>();
+        final ChatRoomLogic chatRoomLogic = Get.find<ChatRoomLogic>();
+        try {
           middle.listenFocusNode();
-        }catch(e,stack){
+          chatRoomLogic.hideChatTool();
+        } catch (e, stack) {
           print(e);
         }
         print('全局失去焦点');

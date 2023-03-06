@@ -8,8 +8,6 @@ import 'state.dart';
 class AppHomeLogic extends GetxController {
   final AppHomeState state = AppHomeState();
 
-
-
   void putMiddleControl(BuildContext context) async {
     /// 中控界面
     OverlayEntry overlayEntry = OverlayEntry(builder: (context) {
@@ -25,8 +23,7 @@ class AppHomeLogic extends GetxController {
     });
     Future.delayed(const Duration(milliseconds: 100), () {
       Overlay.of(context)?.insert(overlayEntry);
+      state.isLoadMiddle = true;
     });
   }
-
-
 }

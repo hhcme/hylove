@@ -12,7 +12,9 @@ class AppHomeView extends GetView<AppHomeLogic> {
 
   @override
   Widget build(BuildContext context) {
-    controller.putMiddleControl(context);
+    if (!controller.state.isLoadMiddle) {
+      controller.putMiddleControl(context);
+    }
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
