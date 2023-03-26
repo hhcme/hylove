@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:base_widget/base_widget.dart';
 
 class ChatRoomSettingOnTapItemView extends StatelessWidget {
-  const ChatRoomSettingOnTapItemView({super.key, required this.onTap, required this.name, this.hasDownLine = true});
+  const ChatRoomSettingOnTapItemView({super.key, required this.onTap, required this.name});
 
+  /// 点击按钮事件
   final VoidCallback onTap;
 
+  /// 功能名称
   final String name;
-
-  final bool hasDownLine;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ChatRoomSettingOnTapItemView extends StatelessWidget {
       height: screenUtil.adaptive(120),
       decoration: const BoxDecoration(color: Colors.white),
       margin: EdgeInsets.only(
-        bottom: screenUtil.adaptive(20),
+        top: screenUtil.adaptive(20),
       ),
       child: GestureDetector(
         onTap: onTap,
@@ -30,7 +30,7 @@ class ChatRoomSettingOnTapItemView extends StatelessWidget {
             children: [
               Text(
                 name,
-                style: TextStyle(fontSize: screenUtil.adaptive(40), color: Colors.black),
+                style: TextStyle(fontSize: screenUtil.adaptive(45), color: Colors.black),
               ),
               Icon(
                 Icons.arrow_forward_ios_outlined,

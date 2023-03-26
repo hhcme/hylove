@@ -21,9 +21,10 @@ class MyApp extends StatelessWidget {
       onTap: () async {
         FocusScope.of(context).requestFocus(FocusNode());
         SystemChannels.textInput.invokeMethod('TextInput.hide');
-        final MiddleControlLogic middle = Get.find<MiddleControlLogic>();
-        final ChatRoomLogic chatRoomLogic = Get.find<ChatRoomLogic>();
         try {
+          final MiddleControlLogic middle = Get.find<MiddleControlLogic>();
+          final ChatRoomLogic chatRoomLogic = Get.find<ChatRoomLogic>();
+
           middle.listenFocusNode();
           chatRoomLogic.hideChatTool();
         } catch (e, stack) {

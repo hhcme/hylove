@@ -19,15 +19,15 @@ class ChatRoomSettingView extends GetView<ChatRoomSettingLogic> {
       backgroundColor: const Color(0xFFF0EFF5),
       body: ListView(
         children: [
-          ChatRoomSettingCheckBoxItemView(name: '消息免打扰', onTap: () {}),
-          ChatRoomSettingCheckBoxItemView(name: '置顶聊天', onTap: () {}),
-
-
+          ChatRoomSettingCheckBoxItemView(
+              name: '消息免打扰', status: controller.state.isDisturb, onTap: () => controller.openDisturb()),
+          ChatRoomSettingCheckBoxItemView(
+              name: '置顶聊天', status: controller.state.isTop, onTap: () => controller.openTop()),
           ChatRoomSettingOnTapItemView(name: '查找聊天记录', onTap: () {}),
           ChatRoomSettingOnTapItemView(name: '设置当前聊天背景', onTap: () {}),
           ChatRoomSettingOnTapItemView(name: '举报', onTap: () {}),
           Container(
-              height: screenUtil.adaptive(150),
+              height: screenUtil.adaptive(120),
               margin: EdgeInsets.only(
                 top: screenUtil.adaptive(20),
                 left: screenUtil.adaptive(50),
