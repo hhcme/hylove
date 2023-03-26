@@ -9,6 +9,15 @@ class ChatRoomState {
 
   final TextEditingController textEditingController = TextEditingController();
 
+  /// 信息列表
+  final Rx<List<MsgInfo>> itemList = Rx([]);
+
+  /// 滚动列表的 key
+  final GlobalKey<AnimatedListState> listKey = GlobalKey<AnimatedListState>();
+
+  /// 滚动列表的控制器(带动画)
+  final ScrollController scrollController = ScrollController();
+
   /// 当前的展开状态
   bool isShowStatus = false;
 

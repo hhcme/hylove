@@ -4,6 +4,7 @@ import 'package:base_widget/base_widget.dart';
 import 'package:hylove/helper/helper.dart';
 import 'logic.dart';
 
+/// 这里是每一个聊天列表的 item 列表
 class ChatItemView extends StatelessWidget {
   const ChatItemView(this.tag, this.index, {super.key});
 

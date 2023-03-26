@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:base_widget/base_widget.dart';
+import 'package:hylove/page/home/chat_home/chat_room/component/msg_show.dart';
 import 'package:hylove/routes/pages.dart';
 import 'logic.dart';
 
@@ -37,10 +38,28 @@ class ChatRoomView extends GetView<ChatRoomLogic> {
       backgroundColor: const Color(0xFFF0EFF5),
       body: Column(
         children: [
+          /// 顶部留白
+          Container(height: screenUtil.adaptive(20)),
+
+          /// 中间的聊天列表
           Expanded(
-              child: ListView(
-            children: [],
-          )),
+            child: AnimatedList(
+              key: controller.state.listKey,
+              controller: controller.state.scrollController,
+              initialItemCount: controller.state.itemList.value.length,
+              itemBuilder: (BuildContext context, int index, Animation<double> animation) {
+                return MsgItemView(
+                    key: Key(controller.state.itemList.value[index].hashCode.toString()),
+                    msg: controller.state.itemList.value[index],
+                    animation: animation);
+              },
+            ),
+          ),
+
+          /// 底部留白
+          Container(height: screenUtil.adaptive(20)),
+
+          /// 底部的文本输入框和功能区
           AnimatedBuilder(
               animation: controller.animationController,
               builder: (BuildContext context, child) {
@@ -125,6 +144,7 @@ class ChatRoomView extends GetView<ChatRoomLogic> {
                             GestureDetector(
                               onTap: () {
                                 if (controller.state.showSend.value) {
+                                  controller.createMsg();
                                 } else {
                                   controller.openChatTool();
                                   FocusScope.of(context).requestFocus(FocusNode());

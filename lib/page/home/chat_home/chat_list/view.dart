@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hylove/page/home/chat_home/chat_list/chat_item/chat_item.dart';
 import 'logic.dart';
 
+/// 聊天列表
 class ChatListView extends GetView<ChatListLogic> {
   const ChatListView({super.key});
 

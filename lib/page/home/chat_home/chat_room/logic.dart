@@ -17,6 +17,20 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
 
   final MiddleControlLogic middle = Get.find<MiddleControlLogic>();
 
+  /// 发送信息
+  void createMsg() async {
+    final int index = state.itemList.value.length;
+    final String txt = state.textEditingController.text;
+    state.itemList.value.insert(index, MsgInfo(txt, sendUserId: index.isEven ? 1 : 2));
+    state.listKey.currentState?.insertItem(index, duration: const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 100));
+    // 滚动到底部
+    state.scrollController
+        .animateTo(state.scrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 300), curve: Curves.easeOutBack);
+    state.textEditingController.clear();
+    state.showSend.value = false;
+  }
+
   /// 打开聊天工具
   void openChatTool() async {
     if (animationController.isAnimating) {
@@ -80,7 +94,12 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
   void _listenInputFocusNode() async {
     if (state.inputFocusNode.hasFocus) {
       print('inputFocusNode得到焦点');
-      hideChatTool();
+      await hideChatTool();
+      await Future.delayed(const Duration(milliseconds: 500));
+      // 滚动到底部
+      state.scrollController
+          .animateTo(state.scrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 300), curve: Curves.easeInToLinear);
+
     } else {
       print('inputFocusNode失去焦点');
     }

@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         getPages: AppPages.routes,
+        transitionDuration: const Duration(milliseconds: 500),
         theme: ThemeData(
           useMaterial3: true,
           // colorSchemeSeed: const Color(0xFFF5B0FF),
