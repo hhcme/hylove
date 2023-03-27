@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hylove/component/component.dart';
 import 'package:hylove/global/const.dart';
 import 'package:hylove/model/chat_model/chat_model.dart';
 import 'package:base_widget/base_widget.dart';
@@ -68,62 +69,65 @@ class _MsgItemViewState extends State<MsgItemView> with SingleTickerProviderStat
 
             /// 聊天信息框整体
             SlideTransition(
-                position: _txtOffsetAnimation,
-                child: AnimatedBuilder(
-                  animation: _animationController,
-                  builder: (BuildContext context, Widget? child) {
-                    return Opacity(
-                      opacity: _txtOpacityAnimation.value,
-                      child: Stack(
-                        children: [
-                          /// 小箭头指向(左边)
-                          if (!isMeSend)
-                            Positioned(
-                                top: screenUtil.adaptive(15),
-                                left: screenUtil.adaptive(-15.5),
-                                child: const RotatedBox(
-                                    quarterTurns: 3, child: Icon(Icons.arrow_drop_up, color: Color(0x77FFA0E6)))),
+                    position: _txtOffsetAnimation,
+                    child: AnimatedBuilder(
+                      animation: _animationController,
+                      builder: (BuildContext context, Widget? child) {
+                        return Opacity(
+                          opacity: _txtOpacityAnimation.value,
+                          child: Stack(
+                            children: [
+                              /// 小箭头指向(左边)
+                              if (!isMeSend)
+                                Positioned(
+                                    top: screenUtil.adaptive(15),
+                                    left: screenUtil.adaptive(-15.5),
+                                    child: const RotatedBox(
+                                        quarterTurns: 3, child: Icon(Icons.arrow_drop_up, color: Color(0x77FFA0E6)))),
 
-                          /// 聊天的文本/图片信息框
-                          ConstrainedBox(
-                              constraints: BoxConstraints(
-                                  minHeight: screenUtil.adaptive(90), maxWidth: screenUtil.adaptive(740)),
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                  left: screenUtil.adaptive(20),
-                                  right: screenUtil.adaptive(20),
-                                  top: screenUtil.adaptive(5),
-                                  bottom: screenUtil.adaptive(5),
-                                ),
-                                padding: EdgeInsets.only(
-                                  left: screenUtil.adaptive(20),
-                                  right: screenUtil.adaptive(20),
-                                  top: screenUtil.adaptive(10),
-                                  bottom: screenUtil.adaptive(10),
-                                ),
-                                decoration: BoxDecoration(
-                                  color: const Color(0x77FFA0E6),
-                                  borderRadius: BorderRadius.circular(screenUtil.adaptive(10)),
-                                ),
-                                child: Text(widget.msg.txt,
-                                    style: TextStyle(
-                                        letterSpacing: screenUtil.adaptive(1.5),
-                                        height: screenUtil.adaptive(4),
-                                        fontSize: screenUtil.adaptive(40))),
-                              )),
+                              /// 聊天的文本/图片信息框
+                              PressedMenu(
+                                  bigRatio: WidthHeightChangeRatio(width: 1.03, height: 1.15),
+                                  smallRatio: WidthHeightChangeRatio(width: 0.97, height: 0.9),
+                                  child: ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                      minHeight: screenUtil.adaptive(90), maxWidth: screenUtil.adaptive(740)),
+                                  child: Container(
+                                    margin: EdgeInsets.only(
+                                      left: screenUtil.adaptive(20),
+                                      right: screenUtil.adaptive(20),
+                                      top: screenUtil.adaptive(5),
+                                      bottom: screenUtil.adaptive(5),
+                                    ),
+                                    padding: EdgeInsets.only(
+                                      left: screenUtil.adaptive(20),
+                                      right: screenUtil.adaptive(20),
+                                      top: screenUtil.adaptive(10),
+                                      bottom: screenUtil.adaptive(10),
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: const Color(0x77FFA0E6),
+                                      borderRadius: BorderRadius.circular(screenUtil.adaptive(10)),
+                                    ),
+                                    child: Text(widget.msg.txt,
+                                        style: TextStyle(
+                                            letterSpacing: screenUtil.adaptive(1.5),
+                                            height: screenUtil.adaptive(4),
+                                            fontSize: screenUtil.adaptive(40))),
+                                  ))),
 
-                          /// 小箭头指向(右边)
-                          if (isMeSend)
-                            Positioned(
-                                top: screenUtil.adaptive(15),
-                                right: screenUtil.adaptive(-15.5),
-                                child: const RotatedBox(
-                                    quarterTurns: 1, child: Icon(Icons.arrow_drop_up, color: Color(0x77FFA0E6)))),
-                        ],
-                      ),
-                    );
-                  },
-                )),
+                              /// 小箭头指向(右边)
+                              if (isMeSend)
+                                Positioned(
+                                    top: screenUtil.adaptive(15),
+                                    right: screenUtil.adaptive(-15.5),
+                                    child: const RotatedBox(
+                                        quarterTurns: 1, child: Icon(Icons.arrow_drop_up, color: Color(0x77FFA0E6)))),
+                            ],
+                          ),
+                        );
+                      },
+                    )),
 
             /// 右边自己发的信息时显示的头像
             if (isMeSend)
