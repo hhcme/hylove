@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:base_widget/base_widget.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:hylove/page/home/task_home_view/task_card/task_card.dart';
@@ -172,7 +172,7 @@ class TaskHomeView extends GetView<TaskHomeLogic> {
                   groupSeparatorBuilder: (String value) => Container(),
                   itemBuilder: (c, element) {
                     return LogicWrap(
-                        getInstance: () => TaskCardLogic(TaskCardState(element)), child: const TaskCardView());
+                        getInstance: () => TaskCardLogic(TaskCardState(element)), child:  const TaskCardView());
                   },
                 ),
               ],

@@ -1,5 +1,5 @@
 import 'package:flutter/animation.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 
 class AppHomeState {
   AppHomeState();

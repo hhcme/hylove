@@ -29,7 +29,9 @@ class _PopMenuState extends State<PopMenu> with SingleTickerProviderStateMixin {
                 top: screenUtil.adaptive(65),
                 left: screenUtil.adaptive(180),
               ),
-              child: RotatedBox(quarterTurns: 2, child: Icon(Icons.arrow_drop_up, size: screenUtil.adaptive(80), color: const Color(0xff262626))),
+              child: RotatedBox(
+                  quarterTurns: 2,
+                  child: Icon(Icons.arrow_drop_up, size: screenUtil.adaptive(80), color: const Color(0xff262626))),
             )
           ],
         ),

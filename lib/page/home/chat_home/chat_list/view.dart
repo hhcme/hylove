@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:base_widget/base_widget.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:hylove/page/home/chat_home/chat_list/chat_item/chat_item.dart';
 import 'logic.dart';
 

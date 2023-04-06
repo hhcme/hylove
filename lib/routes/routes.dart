@@ -40,7 +40,7 @@ abstract class Routes {
 // 绑定页面用的路由名称
 abstract class _Paths {
   // APP首页
-  static const appHome = '/app_home';
+  static const appHome = '/';
 
   // 登陆首页
   static const loginHome = '/login_home';

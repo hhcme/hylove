@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:grouped_list/grouped_list.dart';
 
 import 'logic.dart';
@@ -10,18 +10,16 @@ class TestView extends GetView<TestLogic> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor:Colors.blue,
-      body:
-
-      GroupedListView<dynamic, String>(
+      backgroundColor: Colors.blue,
+      body: GroupedListView<dynamic, String>(
         elements: controller.state.elements,
-        groupBy: (element) => element['group'],// 可以对列表里的数据进行一点归类
+        groupBy: (element) => element['group'], // 可以对列表里的数据进行一点归类
         groupComparator: (value1, value2) => value2.compareTo(value1),
-        itemComparator: (item1, item2) =>
-            item1['name'].compareTo(item2['name']),
+        itemComparator: (item1, item2) => item1['name'].compareTo(item2['name']),
         order: GroupedListOrder.DESC,
         useStickyGroupSeparators: true,
-        groupSeparatorBuilder: (String value) => Padding(// 每一组的分隔的widget
+        groupSeparatorBuilder: (String value) => Padding(
+          // 每一组的分隔的widget
           padding: const EdgeInsets.all(8.0),
           child: Text(
             '${value}ss',
@@ -32,12 +30,10 @@ class TestView extends GetView<TestLogic> {
         itemBuilder: (c, element) {
           return Card(
             elevation: 8.0,
-            margin:
-            const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+            margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
             child: SizedBox(
               child: ListTile(
-                contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 20.0, vertical: 10.0),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                 leading: const Icon(Icons.account_circle),
                 title: Text(element['name']),
                 trailing: const Icon(Icons.arrow_forward),
@@ -47,14 +43,13 @@ class TestView extends GetView<TestLogic> {
         },
       ),
 
-    //   Center(
-    //   child: TextButton(
-    //     onPressed: () => Get.back(),
-    //     child: const Text('back',style: TextStyle(color: Colors.black),),
-    //   ),
-    // )
-
-      );
+      //   Center(
+      //   child: TextButton(
+      //     onPressed: () => Get.back(),
+      //     child: const Text('back',style: TextStyle(color: Colors.black),),
+      //   ),
+      // )
+    );
   }
 }
 

@@ -6,7 +6,7 @@ class UserInfo {
   final int id = 1;
 
   /// 昵称
-   String nickName = '老婆的聪聪豆';
+  String nickName = '老婆的聪聪豆';
 
   /// 注册时间
   final int createTime = 1535760000;

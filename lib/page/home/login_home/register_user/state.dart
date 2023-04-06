@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 
 class RegisterState {
   RegisterState();
@@ -7,7 +7,7 @@ class RegisterState {
   /// 页面控制器
   final PageController pageController = PageController();
 
-  final RxInt index=0.obs;
+  final RxInt index = 0.obs;
 
   /// 是否在跳转页面中
   bool isAnimation = false;

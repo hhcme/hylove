@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:base_widget/base_widget.dart';
 import 'package:hylove/helper/helper.dart';
 import 'logic.dart';

@@ -69,27 +69,27 @@ class _MsgItemViewState extends State<MsgItemView> with SingleTickerProviderStat
 
             /// 聊天信息框整体
             SlideTransition(
-                    position: _txtOffsetAnimation,
-                    child: AnimatedBuilder(
-                      animation: _animationController,
-                      builder: (BuildContext context, Widget? child) {
-                        return Opacity(
-                          opacity: _txtOpacityAnimation.value,
-                          child: Stack(
-                            children: [
-                              /// 小箭头指向(左边)
-                              if (!isMeSend)
-                                Positioned(
-                                    top: screenUtil.adaptive(15),
-                                    left: screenUtil.adaptive(-15.5),
-                                    child: const RotatedBox(
-                                        quarterTurns: 3, child: Icon(Icons.arrow_drop_up, color: Color(0x77FFA0E6)))),
+                position: _txtOffsetAnimation,
+                child: AnimatedBuilder(
+                  animation: _animationController,
+                  builder: (BuildContext context, Widget? child) {
+                    return Opacity(
+                      opacity: _txtOpacityAnimation.value,
+                      child: Stack(
+                        children: [
+                          /// 小箭头指向(左边)
+                          if (!isMeSend)
+                            Positioned(
+                                top: screenUtil.adaptive(15),
+                                left: screenUtil.adaptive(-15.5),
+                                child: const RotatedBox(
+                                    quarterTurns: 3, child: Icon(Icons.arrow_drop_up, color: Color(0x77FFA0E6)))),
 
-                              /// 聊天的文本/图片信息框
-                              PressedMenu(
-                                  bigRatio: WidthHeightChangeRatio(width: 1.03, height: 1.15),
-                                  smallRatio: WidthHeightChangeRatio(width: 0.97, height: 0.9),
-                                  child: ConstrainedBox(
+                          /// 聊天的文本/图片信息框
+                          PressedMenu(
+                              bigRatio: WidthHeightChangeRatio(width: 1.03, height: 1.15),
+                              smallRatio: WidthHeightChangeRatio(width: 0.97, height: 0.9),
+                              child: ConstrainedBox(
                                   constraints: BoxConstraints(
                                       minHeight: screenUtil.adaptive(90), maxWidth: screenUtil.adaptive(740)),
                                   child: Container(
@@ -116,18 +116,18 @@ class _MsgItemViewState extends State<MsgItemView> with SingleTickerProviderStat
                                             fontSize: screenUtil.adaptive(40))),
                                   ))),
 
-                              /// 小箭头指向(右边)
-                              if (isMeSend)
-                                Positioned(
-                                    top: screenUtil.adaptive(15),
-                                    right: screenUtil.adaptive(-15.5),
-                                    child: const RotatedBox(
-                                        quarterTurns: 1, child: Icon(Icons.arrow_drop_up, color: Color(0x77FFA0E6)))),
-                            ],
-                          ),
-                        );
-                      },
-                    )),
+                          /// 小箭头指向(右边)
+                          if (isMeSend)
+                            Positioned(
+                                top: screenUtil.adaptive(15),
+                                right: screenUtil.adaptive(-15.5),
+                                child: const RotatedBox(
+                                    quarterTurns: 1, child: Icon(Icons.arrow_drop_up, color: Color(0x77FFA0E6)))),
+                        ],
+                      ),
+                    );
+                  },
+                )),
 
             /// 右边自己发的信息时显示的头像
             if (isMeSend)

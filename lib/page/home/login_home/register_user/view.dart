@@ -1,7 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:base_widget/base_widget.dart';
 import 'package:hylove/page/home/login_home/register_user/register_user.dart';
 

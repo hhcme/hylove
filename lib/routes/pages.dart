@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:hylove/page/home/app_home/app_home.dart';
 import 'package:hylove/page/home/chat_home/chat_home.dart';
 import 'package:hylove/page/home/chat_home/chat_room/chat_room.dart';

@@ -134,8 +134,8 @@ class _PressedMenuState extends State<PressedMenu> with SingleTickerProviderStat
   void pushPopMenu() {
     overlayEntry = OverlayEntry(builder: (context) {
       return Positioned(
-        left: getOffset.dx+(getSize.width/2)-screenUtil.adaptive(400),
-        top: getOffset.dy-screenUtil.adaptive(125),
+        left: getOffset.dx + (getSize.width / 2) - screenUtil.adaptive(400),
+        top: getOffset.dy - screenUtil.adaptive(125),
         child: const PopMenu(),
       );
     });

@@ -4,5 +4,4 @@ class TaskCardState {
   TaskCardState(this.taskInfo);
 
   final TaskInfo taskInfo;
-
 }

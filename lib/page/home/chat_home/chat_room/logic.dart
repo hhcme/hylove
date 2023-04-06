@@ -1,7 +1,7 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:flutter/material.dart';
 import 'package:hylove/model/model.dart';
 import 'package:base_widget/base_widget.dart';
@@ -25,8 +25,8 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
     state.listKey.currentState?.insertItem(index, duration: const Duration(milliseconds: 500));
     await Future.delayed(const Duration(milliseconds: 100));
     // 滚动到底部
-    state.scrollController
-        .animateTo(state.scrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 300), curve: Curves.easeOutBack);
+    state.scrollController.animateTo(state.scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300), curve: Curves.easeOutBack);
     state.textEditingController.clear();
     state.showSend.value = false;
   }
@@ -97,9 +97,8 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
       await hideChatTool();
       await Future.delayed(const Duration(milliseconds: 500));
       // 滚动到底部
-      state.scrollController
-          .animateTo(state.scrollController.position.maxScrollExtent, duration: const Duration(milliseconds: 300), curve: Curves.easeInToLinear);
-
+      state.scrollController.animateTo(state.scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300), curve: Curves.easeInToLinear);
     } else {
       print('inputFocusNode失去焦点');
     }

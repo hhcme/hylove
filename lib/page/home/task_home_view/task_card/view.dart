@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:base_widget/base_widget.dart';
+import 'package:hylove/model/model.dart';
 import 'logic.dart';
+import 'state.dart';
 
 class TaskCardView extends GetView<TaskCardLogic> {
-  const TaskCardView({super.key});
+  const TaskCardView( {super.key});
 
   @override
   Widget build(BuildContext context) {

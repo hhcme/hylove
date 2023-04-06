@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:hylove/data/global_data/login.dart';
 
 /// 全局数据注册
@@ -6,6 +6,4 @@ import 'package:hylove/data/global_data/login.dart';
 class GlobalData extends GetxController {
   GlobalData();
   final LoginData loinData = LoginData();
-
-
 }

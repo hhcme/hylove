@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:hylove/page/home/app_home/top_background/top_background.dart';
 import 'package:hylove/page/home/task_home_view/task_home.dart';
 import 'package:hylove/page/middle_control/middle_control.dart';

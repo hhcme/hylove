@@ -9,7 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get: ^4.6.5
   cupertino_icons: ^1.0.2
   card_swiper: ^2.0.4
   # 列表组件
@@ -49,3 +48,5 @@ flutter:
 dependency_overrides:
   base_widget:
     path: /Users/hahaha/Desktop/LoveNote/Front/layer_1/base_widget
+  hy_get:
+    path: /Users/hahaha/Desktop/flutter组件/hy_get

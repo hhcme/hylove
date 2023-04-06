@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:base_widget/base_widget.dart';
 import 'logic.dart';
 

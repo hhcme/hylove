@@ -1,6 +1,2 @@
-
-
 ///
-class MiddleControlStream{
-
-}
+class MiddleControlStream {}

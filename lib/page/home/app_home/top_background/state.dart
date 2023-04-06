@@ -1,5 +1,5 @@
 import 'package:flutter/animation.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 
 class TopBackgroundState {
   TopBackgroundState();
@@ -10,7 +10,7 @@ class TopBackgroundState {
   late final Animation<double> height;
 
   /// false为缩起来滑动，true为展开时滑动
-  bool topVerticalMode =false;
+  bool topVerticalMode = false;
 
   /// 下滑开始的位置
   Offset verticalStart = const Offset(0, 0);

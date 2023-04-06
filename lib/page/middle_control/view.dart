@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:base_widget/base_widget.dart';
 import 'package:hylove/routes/pages.dart';
 
 import 'logic.dart';
+import 'state.dart';
 
 class MiddleControlView extends GetView<MiddleControlLogic> {
   const MiddleControlView({Key? key}) : super(key: key);
@@ -187,9 +188,8 @@ class MiddleControlView extends GetView<MiddleControlLogic> {
                                               height: screenUtil.adaptive(130),
                                               child: TextButton(
                                                 onPressed: () {
-                                                  Get.until((route) =>
-                                                      route.settings.name == Routes.APP_HOME ||
-                                                      route.settings.name == '/');
+                                                  Get.until(
+                                                      (route) => route.name == Routes.APP_HOME || route.name == '/');
                                                 },
                                                 style: ButtonStyle(
                                                   shape: MaterialStateProperty.all(

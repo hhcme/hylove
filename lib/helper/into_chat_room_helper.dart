@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 import 'package:hylove/model/model.dart';
 import 'package:hylove/routes/pages.dart';
 
@@ -9,7 +9,5 @@ class ChatRoomHelper {
   }
 
   /// 前往群聊
-  static Future<void> toGroupRoom() async {
-
-  }
+  static Future<void> toGroupRoom() async {}
 }

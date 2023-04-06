@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:hy_get/hy_get.dart';
 
 class NoteHomeState {
   NoteHomeState();
@@ -8,5 +8,4 @@ class NoteHomeState {
   final GlobalKey moreGlobalKey = GlobalKey();
 
   late DateTime selectedDate = DateTime.now();
-
 }
