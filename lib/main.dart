@@ -8,7 +8,8 @@ import 'package:hylove/page/home/chat_home/chat_room/chat_room.dart';
 import 'package:hylove/page/middle_control/middle_control.dart';
 import 'package:hylove/routes/pages.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   AllData.init();
   runApp(const MyApp());
 }

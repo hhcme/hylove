@@ -7,7 +7,7 @@ import 'logic.dart';
 import 'state.dart';
 
 class TaskCardView extends GetView<TaskCardLogic> {
-  const TaskCardView( {super.key});
+  const TaskCardView({super.key});
 
   @override
   Widget build(BuildContext context) {

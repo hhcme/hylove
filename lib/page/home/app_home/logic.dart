@@ -22,8 +22,17 @@ class AppHomeLogic extends GetxController {
       );
     });
     Future.delayed(const Duration(milliseconds: 100), () {
-      Overlay.of(context)?.insert(overlayEntry);
+      Overlay.of(context).insert(overlayEntry);
       state.isLoadMiddle = true;
     });
+  }
+
+  void getStorage()async{
+    final xxx = GetStorage().read('nowDateTime');
+    print(xxx.toString());
+  }
+
+  void setStorage()async{
+    GetStorage().write('nowDateTime', DateTime.now().millisecondsSinceEpoch);
   }
 }

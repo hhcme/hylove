@@ -172,7 +172,7 @@ class TaskHomeView extends GetView<TaskHomeLogic> {
                   groupSeparatorBuilder: (String value) => Container(),
                   itemBuilder: (c, element) {
                     return LogicWrap(
-                        getInstance: () => TaskCardLogic(TaskCardState(element)), child:  const TaskCardView());
+                        getInstance: () => TaskCardLogic(TaskCardState(element)), child: const TaskCardView());
                   },
                 ),
               ],

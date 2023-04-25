@@ -29,6 +29,7 @@ class ChatRoomLogic extends GetxController with GetSingleTickerProviderStateMixi
         duration: const Duration(milliseconds: 300), curve: Curves.easeOutBack);
     state.textEditingController.clear();
     state.showSend.value = false;
+    GetStorage.init();
   }
 
   /// 打开聊天工具

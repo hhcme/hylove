@@ -30,14 +30,27 @@ class AppHomeView extends GetView<AppHomeLogic> {
 
           ///
           SizedBox(
-            // width: screenUtil.adaptive(0),
             height: screenUtil.adaptive(500),
             child: Center(
               child: TextButton(
-                  onPressed: () {
-                    Get.toNamed(Routes.TASK_HOME);
-                  },
-                  child: const Text('go')),
+                  onPressed: () => Get.toNamed(Routes.TASK_HOME),
+                  child: const Text('去任务界面')),
+            ),
+          ),
+          SizedBox(
+            height: screenUtil.adaptive(100),
+            child: Center(
+              child: TextButton(
+                  onPressed: () => controller.setStorage(),
+                  child: const Text('设置缓存')),
+            ),
+          ),
+          SizedBox(
+            height: screenUtil.adaptive(100),
+            child: Center(
+              child: TextButton(
+                  onPressed: () => controller.getStorage(),
+                  child: const Text('读取缓存')),
             ),
           )
         ],
